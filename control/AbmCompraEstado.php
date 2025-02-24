@@ -380,10 +380,11 @@ class AbmCompraEstado{
 
         $AbmUsuario = new AbmUsuario();
         $AbmCompra = new AbmCompra();
-        
-
+        $idCompra = ['idcompra' => $param['idcompra']]; 
+        // $idCompra =  $param['idcompra'];
         $compra = $AbmCompra->buscar($idCompra);
-
+        // $compra = $AbmCompra->buscar($param['idcompra']);
+        // print_r($compra);
         $idusuario = $compra[0]->getObjUsuario()->getIdUsuario();
         $arregloUsuario['idusuario']=$idusuario;
         $usuario = $AbmUsuario->buscar($arregloUsuario);
@@ -391,7 +392,8 @@ class AbmCompraEstado{
         $nombreUsuario = $usuario[0]->getUsNombre();
 
         $asunto = "cancelada";
-
+        // echo "Ejecutando envío de correo por cancelación...";
+        // var_dump($email, $nombreUsuario, $asunto, $mensaje); 
         $this->enviarMail($email, $nombreUsuario, $asunto, $mensaje);
         }
 
@@ -409,13 +411,14 @@ try {
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'mateobucarey021@gmail.com';                     //SMTP username
-    $mail->Password   = 'cebx rjlh ajya jqaj';                               //SMTP password
+    $mail->Username   = 'nicobucarey12@gmail.com';                     //SMTP username
+    $mail->Password   = 'ynxa vguv vjfm hdvq';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
+    // $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
+    // $mail->Port       = 587;
     //Recipients
-    $mail->setFrom('mateobucarey021@gmail.com', 'Perfumeria');
+    $mail->setFrom('nicobucarey12@gmail.com', 'Perfumeria');
     $mail->addAddress($email, $nombreUsuario);     //Add a recipient
     //$mail->addAddress('ellen@example.com');               //Name is optional
     //$mail->addReplyTo('info@example.com', 'Information');
@@ -431,7 +434,7 @@ try {
     $mail->Subject = $asunto;
     $mail->Body    = $mensaje;
     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER; 
     $mail->send();
     // echo 'Message has been sent';
 } catch (Exception $e) {
