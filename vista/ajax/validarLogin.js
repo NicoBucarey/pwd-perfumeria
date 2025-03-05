@@ -21,10 +21,10 @@ $(document).ready(function () {
 
         errorPlacement: function (error, element) {
 
-            var elementosRepetidos2 = document.querySelectorAll(".captcha-incorrecto");
-            elementosRepetidos2.forEach(function(elemento2) {
-                elemento2.remove();
-            });
+            // var elementosRepetidos2 = document.querySelectorAll(".captcha-incorrecto");
+            // elementosRepetidos2.forEach(function(elemento2) {
+            //     elemento2.remove();
+            // });
 
             error.addClass("invalid-feedback");
             element.closest(".contenedor-dato").append(error);
@@ -82,7 +82,7 @@ $(document).ready(function () {
                             '<div class="alert alert-danger alert-dismissible" role="alert">',
                             '   <div>' + respuesta.mensaje + '</div>',
                             '</div>'
-                        ].join('');
+                        ].join(''); // se eliminan las comas del arreglo
                         alertaMensajesElem.append(wrapper);
                     }
 

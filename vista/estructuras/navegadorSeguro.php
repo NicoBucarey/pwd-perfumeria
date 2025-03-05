@@ -85,13 +85,13 @@ $direccionPadre = $session->getDireccionMenuPadre();
                             ?>
 
                             <?php
-                            if(count($colRoles)>1){
-                                if($direccionPadre == "opciones"){
-                                    echo '<a class="dropdown-item" href="cambiarRol.php">Cambiar Rol</a>';
-                                } else {
-                                    echo '<a class="dropdown-item" href="../opciones/cambiarRol.php">Cambiar Rol</a>';
-                                }
-                            }
+                            // if(count($colRoles)>1){
+                            //     if($direccionPadre == "opciones"){
+                            //         echo '<a class="dropdown-item" href="cambiarRol.php">Cambiar Rol</a>';
+                            //     } else {
+                            //         echo '<a class="dropdown-item" href="../opciones/cambiarRol.php">Cambiar Rol</a>';
+                            //     }
+                            // }
                             ?>
                             <div class="dropdown-divider"></div>
                             <?php

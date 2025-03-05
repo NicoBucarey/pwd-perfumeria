@@ -34,10 +34,10 @@ $objUsuario = $listaUsuario[0];
                         </div>
                         <div class="form-group mb-3">
                             <label for="usdeshabilitado">Estado:</label>
-                            <select class="form-control" id="usdeshabilitado" name="usdeshabilitado" required>
-                                <option value="0000-00-00 00:00:00" <?php echo ($objUsuario->getUsDeshabilitado() == "0000-00-00 00:00:00") ? 'selected' : ''; ?>>Habilitado</option>
-                                <option value="<?php echo date('Y-m-d H:i:s'); ?>" <?php echo ($objUsuario->getUsDeshabilitado() != "0000-00-00 00:00:00") ? 'selected' : ''; ?>>Deshabilitado</option>
-                            </select>
+                    <select class="form-control" id="usdeshabilitado" name="usdeshabilitado" required>
+                        <option value="0000-00-00 00:00:00" <?php echo ($objUsuario->getUsDeshabilitado() == "0000-00-00 00:00:00") ? 'selected' : ''; ?>>Habilitado</option>
+                        <option value="<?php echo date('Y-m-d H:i:s'); ?>" <?php echo ($objUsuario->getUsDeshabilitado() != "0000-00-00 00:00:00") ? 'selected' : ''; ?>>Deshabilitado</option>
+                    </select>
 
                         </div>
                         <div class="form-group d-none">

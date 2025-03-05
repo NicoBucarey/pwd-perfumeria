@@ -59,7 +59,7 @@ if ($rol != null) {
             $totalProductos = min(count($listaProd), $limiteProductos); // Mostrar hasta 6 productos
             $productosPorFila = 3;
 
-            for ($fila = 0; $fila < ceil($totalProductos / $productosPorFila); $fila++) {
+            for ($fila = 0; $fila < ceil($totalProductos / $productosPorFila); $fila++) { //ceil -> redondea para arriba
                 echo "<div class='row mb-4 justify-content-center'>";
                 for ($col = 0; $col < $productosPorFila; $col++) {
                     $index = $fila * $productosPorFila + $col;
