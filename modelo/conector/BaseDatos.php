@@ -17,25 +17,11 @@ class BaseDatos extends PDO {
    
     public function __construct(){
         $this->engine = 'mysql';
+        $this->host = 'mysql.railway.internal';
+        $this->database = 'railway';
+        $this->user = 'root';
+        $this->pass = '';
         $this->debug = true;
-        $this->error ="";
-        $this->sql ="";
-        $this->indice =0;
-        
-        // Detectar automáticamente el entorno
-        if (isset($_ENV['RAILWAY_ENVIRONMENT']) || getenv('RAILWAY_ENVIRONMENT')) {
-            // Entorno Railway - usar conexión interna
-            $this->host = 'mysql.railway.internal';
-            $this->database = 'railway';
-            $this->user = 'root';
-            $this->pass = getenv('MYSQLPASSWORD') ?: 'NXxsbPPoMYuLmpMascweqiPRivvCql';
-        } else {
-            // Entorno local
-            $this->host = 'localhost';
-            $this->database = 'bdcarritocompras';
-            $this->user = 'root';
-            $this->pass = '';
-        }
         $this->error ="";
         $this->sql ="";
         $this->indice =0;
