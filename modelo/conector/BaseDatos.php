@@ -18,11 +18,11 @@ class BaseDatos extends PDO {
     public function __construct(){
         $this->engine = 'mysql';
         
-        // Usar las variables exactas de Railway
-        $this->host = getenv('MYSQLHOST') ?: $_SERVER['MYSQLHOST'] ?? 'mysql.railway.internal';
-        $this->database = getenv('MYSQLDATABASE') ?: $_SERVER['MYSQLDATABASE'] ?? 'railway';
-        $this->user = getenv('MYSQLUSER') ?: $_SERVER['MYSQLUSER'] ?? 'root';
-        $this->pass = getenv('MYSQLPASSWORD') ?: $_SERVER['MYSQLPASSWORD'] ?? '';
+        // Configuración temporal hardcoded para Railway
+        $this->host = 'mysql.railway.internal';
+        $this->database = 'railway';
+        $this->user = 'root';
+        $this->pass = 'NXxsbPPoMYuLmpMascweqiPRivvCql'; // Password de las capturas
         
         $this->debug = true;
         $this->error ="";
