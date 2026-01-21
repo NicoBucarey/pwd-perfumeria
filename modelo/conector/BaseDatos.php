@@ -17,10 +17,13 @@ class BaseDatos extends PDO {
    
     public function __construct(){
         $this->engine = 'mysql';
-        $this->host = 'localhost';
-        $this->database = 'bdcarritocompras';
-        $this->user = 'root';
-        $this->pass = '';
+        
+        // Configuración para Railway (variables de entorno) o local
+        $this->host = $_ENV['MYSQLHOST'] ?? 'localhost';
+        $this->database = $_ENV['MYSQLDATABASE'] ?? 'bdcarritocompras';
+        $this->user = $_ENV['MYSQLUSER'] ?? 'root';
+        $this->pass = $_ENV['MYSQLPASSWORD'] ?? '';
+        
         $this->debug = true;
         $this->error ="";
         $this->sql ="";

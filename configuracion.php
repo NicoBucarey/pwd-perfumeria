@@ -10,15 +10,16 @@ header("Cache-Control: no-cache, must-revalidate");
 $PROYECTO ='pwd-perfumeria';
 
 //variable que almacena el directorio del proyecto
-$ROOT =$_SERVER['DOCUMENT_ROOT']."/$PROYECTO/";
+$ROOT = __DIR__ . "/";
 
 include_once($ROOT.'util/funciones.php');
 
 // Variable que define la pagina de autenticacion del proyecto
-$INICIO = "Location:http://".$_SERVER['HTTP_HOST']."/$PROYECTO/vista/inicio/home.php";
+$host = $_SERVER['HTTP_HOST'];
+$INICIO = "Location:https://$host/vista/inicio/home.php";
 
 // variable que define la pagina principal del proyecto (menu principal)
-$PRINCIPAL = "Location:http://".$_SERVER['HTTP_HOST']."/$PROYECTO/vista/inicio/home.php";
+$PRINCIPAL = "Location:https://$host/vista/inicio/home.php";
 
 $_SESSION['ROOT']=$ROOT;
 
