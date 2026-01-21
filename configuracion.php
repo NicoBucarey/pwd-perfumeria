@@ -13,7 +13,12 @@ $PROYECTO ='pwd-perfumeria';
 $ROOT = __DIR__ . "/";
 
 include_once($ROOT.'util/funciones.php');
+
+// Incluir clases de control
 include_once($ROOT.'control/Session.php');
+
+// Incluir clases de modelo
+include_once($ROOT.'modelo/conector/BaseDatos.php');
 
 // Variable que define la pagina de autenticacion del proyecto
 $host = $_SERVER['HTTP_HOST'];

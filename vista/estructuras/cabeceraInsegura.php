@@ -1,5 +1,7 @@
 <?php
-include_once("../../configuracion.php");
+// Configuración absoluta
+$ROOT = $_SERVER['DOCUMENT_ROOT'] . '/';
+include_once($ROOT.'configuracion.php');
 
 $session = new Session();
 
