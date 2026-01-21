@@ -7,10 +7,15 @@ echo "<h2>🔍 Diagnóstico de BD en Railway</h2>";
 
 echo "<h3>Variables de entorno disponibles:</h3>";
 echo "<pre>";
-foreach($_ENV as $key => $value) {
-    if (stripos($key, 'mysql') !== false) {
-        echo "$key = " . (empty($value) ? '(vacío)' : '[CONFIGURADO]') . "\n";
-    }
+
+// Verificar variables con getenv() y $_ENV
+$mysqlVars = ['MYSQLHOST', 'MYSQLDATABASE', 'MYSQLUSER', 'MYSQLPASSWORD', 'MYSQLPORT'];
+foreach($mysqlVars as $var) {
+    $value1 = getenv($var);
+    $value2 = $_ENV[$var] ?? 'NO SET';
+    echo "$var:\n";
+    echo "  getenv(): " . ($value1 ? '[CONFIGURADO]' : 'NO SET') . "\n";
+    echo "  \$_ENV: " . ($value2 !== 'NO SET' ? '[CONFIGURADO]' : 'NO SET') . "\n\n";
 }
 echo "</pre>";
 
@@ -18,10 +23,16 @@ echo "<h3>Intentando conexión manual:</h3>";
 
 // Intentar con diferentes configuraciones
 $configs = [
-    'Configuración 1' => [
+    'Configuración 1 (getenv)' => [
+        'host' => getenv('MYSQLHOST') ?: 'localhost',
+        'database' => getenv('MYSQLDATABASE') ?: 'bdcarritocompras',
+        'user' => getenv('MYSQLUSER') ?: 'root',
+        'pass' => getenv('MYSQLPASSWORD') ?: ''
+    ],
+    'Configuración 2 ($_ENV)' => [
         'host' => $_ENV['MYSQLHOST'] ?? 'localhost',
-        'database' => $_ENV['MYSQLDATABASE'] ?? '',
-        'user' => $_ENV['MYSQLUSER'] ?? '',
+        'database' => $_ENV['MYSQLDATABASE'] ?? 'bdcarritocompras',
+        'user' => $_ENV['MYSQLUSER'] ?? 'root',
         'pass' => $_ENV['MYSQLPASSWORD'] ?? ''
     ]
 ];
